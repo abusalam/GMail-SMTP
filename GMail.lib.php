@@ -7,7 +7,9 @@ function GMailSMTP($AppEMail, $AppName, $Subject, $Body) {
    * PHPMailer Object Instance
    */
   $eMail = new PHPMailer();
-  $eMail->IsSMTP();
+  if (UseSMTP === TRUE) {
+    $eMail->IsSMTP();
+  }
 
   /**
    * Enable SMTP debugging

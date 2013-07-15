@@ -1,5 +1,6 @@
 <?php
 
+define("UseSMTP", TRUE);
 define("GMail_UserID", "username@gmail.com");
 define("GMail_Pass", "password");
 define("UserName", "Paschim Medinipur");
