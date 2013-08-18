@@ -2,7 +2,7 @@
 
 require_once 'config.gmail.php';
 
-function GMailSMTP($AppEMail, $AppName, $Subject, $Body) {
+function GMailSMTP($AppEMail, $AppName, $Subject, $Body, $TxtBody = 'View this page in HTML') {
   /**
    * PHPMailer Object Instance
    */
@@ -35,7 +35,7 @@ function GMailSMTP($AppEMail, $AppName, $Subject, $Body) {
 
   $eMail->Subject = $Subject;
   $eMail->MsgHTML($Body);
-  $eMail->AltBody = "View this page in HTML"; //Text Body
+  $eMail->AltBody = $TxtBody; //Text Body
   $eMail->WordWrap = 50;                    // set word wrap
   //$eMail->AddAttachment("/path/to/file.zip");             // attachment
   //$eMail->AddAttachment("/path/to/image.jpg", "new.jpg"); // attachment
