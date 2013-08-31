@@ -1,6 +1,6 @@
 <?php
 
-require_once 'config.gmail.php';
+require_once __DIR__ . '/config.gmail.php';
 
 function GMailSMTP($AppEMail, $AppName, $Subject, $Body, $TxtBody = 'View this page in HTML') {
   /**
