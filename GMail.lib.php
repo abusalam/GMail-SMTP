@@ -6,7 +6,7 @@ if (file_exists(__DIR__ . '/config.gmail.php')) {
   require_once __DIR__ . '/config.sample.gmail.php';
 }
 
-function GMailSMTP($AppEMail, $AppName, $Subject, $Body, $TxtBody = 'View this page in HTML') {
+function GMailSMTP($AppEMail, $AppName, $Subject, $Body, $TxtBody = 'View this page in HTML', $ReplyTo = GMail_UserID, $ReplyToUserName = UserName) {
   /**
    * PHPMailer Object Instance
    */
@@ -33,8 +33,8 @@ function GMailSMTP($AppEMail, $AppName, $Subject, $Body, $TxtBody = 'View this p
   $eMail->Username = GMail_UserID;          // GMAIL username
   $eMail->Password = GMail_Pass;            // GMAIL password
 
-  $eMail->SetFrom(GMail_UserID, UserName);  //Set who the message is to be sent from
-  $eMail->AddReplyTo(GMail_UserID, UserName); //Set an alternative reply-to address
+  $eMail->SetFrom($ReplyTo, $ReplyToUserName);  //Set who the message is to be sent from
+  $eMail->AddReplyTo($ReplyTo, $ReplyToUserName); //Set an alternative reply-to address
   $eMail->AddAddress($AppEMail, $AppName);  //Set who the message is to be sent to
 
   $eMail->Subject = $Subject;
