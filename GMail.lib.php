@@ -33,7 +33,7 @@ function GMailSMTP($AppEMail, $AppName, $Subject, $Body, $TxtBody = 'View this p
   $eMail->Username = GMail_UserID;          // GMAIL username
   $eMail->Password = GMail_Pass;            // GMAIL password
 
-  $eMail->SetFrom($ReplyTo, $ReplyToUserName);  //Set who the message is to be sent from
+  $eMail->SetFrom(GMail_UserID, UserName);  //Set who the message is to be sent from
   $eMail->AddReplyTo($ReplyTo, $ReplyToUserName); //Set an alternative reply-to address
   $eMail->AddAddress($AppEMail, $AppName);  //Set who the message is to be sent to
 
